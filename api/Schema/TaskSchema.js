@@ -4,11 +4,11 @@ const TaskSchema = new Schema({
   status:Number,
   title: String,
   text: String,
-  kanban:{
+  kanbans:{
     type: Schema.Types.ObjectId,
     ref: "Kanban",
   },
-  working:{
+  workings:{
     type: Schema.Types.ObjectId,
     ref: "Working",
   },

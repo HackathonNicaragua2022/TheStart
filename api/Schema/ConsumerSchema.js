@@ -1,12 +1,12 @@
 const { Schema, model } = require("mongoose");
 
-const CustomerSchema = new Schema({
-  name: String,
-  status: String,
+const ConsumerSchema = new Schema({
+  Name: String,
+  Status: String,
   Week: Number,
   Butget: Number,
   Location: String,
-  product: [
+  products: [
     {
       type: Schema.Types.ObjectId,
       ref: "Product",
@@ -14,7 +14,7 @@ const CustomerSchema = new Schema({
   ],
 });
 
-CustomerSchema.set("toJSON", {
+ConsumerSchema.set("toJSON", {
   transform: (document, returnedObject) => {
     returnedObject.id = returnedObject._id;
     delete returnedObject._id;
@@ -22,6 +22,6 @@ CustomerSchema.set("toJSON", {
   },
 });
 
-const Customer = model("Customer", CustomerSchema);
+const Consumer = model("Consumer", ConsumerSchema);
 
-module.exports = Customer;
+module.exports = Consumer;

@@ -9,11 +9,11 @@ const WorkingSchema = new Schema({
   HireDate: Date,
   reportsTo: String,
 
-  product: {
+  products: {
     type: Schema.Types.ObjectId,
     ref: "Product",
   },
-  task: [
+  tasks: [
     {
       type: Schema.Types.ObjectId,
       ref: "Task",
