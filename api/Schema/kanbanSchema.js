@@ -1,14 +1,6 @@
 const { Schema, model } = require("mongoose");
 
-const WorkingSchema = new Schema({
-  name: String,
-  status: String,
-  Image: String,
-  Designation: String,
-  Country: String,
-  HireDate: Date,
-  reportsTo: String,
-
+const KanbanSchema = new Schema({
   product: {
     type: Schema.Types.ObjectId,
     ref: "Product",
@@ -21,7 +13,7 @@ const WorkingSchema = new Schema({
   ],
 });
 
-WorkingSchema.set("toJSON", {
+KanbanSchema.set("toJSON", {
   transform: (document, returnedObject) => {
     returnedObject.id = returnedObject._id;
     delete returnedObject._id;
@@ -29,6 +21,6 @@ WorkingSchema.set("toJSON", {
   },
 });
 
-const Working = model("Working", WorkingSchema);
+const Kanban = model("Kanban", KanbanSchema);
 
-module.exports = Working;
+module.exports = Kanban;
