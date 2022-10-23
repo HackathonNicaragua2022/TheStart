@@ -1,9 +1,9 @@
 const { Schema, model } = require("mongoose");
 
 const TaskSchema = new Schema({
-  status:Number,
-  title: String,
-  text: String,
+  Status:Number,
+  Title: String,
+  Text: String,
   kanbans:{
     type: Schema.Types.ObjectId,
     ref: "Kanban",

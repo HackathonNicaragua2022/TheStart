@@ -1,29 +1,31 @@
-const Consumer = require("../Schema/ConsumerSchema");
+const Working = require("../Schema/WorkingSchema");
 
 exports.add = async (req, res, next) => {
-  const { Name, Status, Week, Butget, Location, product } = req.body;
-  
-  const consumer = new Consumer({
-    Name,
-    Status,
-    Week,
-    Butget,
-    Location,
-    product,
-  });
+  const { Name, Status, Image, Designation, Country, HireDate, reportsTo, kanbans } = req.body;
 
   try {
-    const savedConsumer = await consumer.save();
-    res.json(savedConsumer)
+    const working = new Working({
+        Name,
+        Status,
+        Designation,
+        Image,
+        Country,
+        HireDate,
+        reportsTo,
+        kanbans,
+      });
+
+    const newWorking = await working.save();
+
+    res.json(newWorking);
   } catch (error) {
     next(error);
   }
 };
 
 exports.show = (req, res, next) => {
-
-  Consumer.find({})
-    .populate('products')
+  Working.find({})
+    .populate("products")
     .then((response) => {
       res.status(200).json(response);
     })
@@ -35,7 +37,7 @@ exports.show = (req, res, next) => {
 exports.showById = (req, res, next) => {
   const id = req.params.id;
 
-  Consumer.findById(id)
+  Working.findById(id)
     .populate("products")
     .then((response) => {
       res.status(200).json(response);

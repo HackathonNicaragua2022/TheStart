@@ -5,36 +5,35 @@ const Consumer = require("../Schema/ConsumerSchema");
 exports.add = async (req, res, next) => {
   const { Name, Status, Image, consumers, Location, totalAmount } = req.body;
 
-  const product = new Product({
-    Name,
-    Status,
-    Image,
-    consumers,
-    Location,
-    totalAmount,
-  });
-
-  
-
   try {
-    const newProduct = await product.save();
     const kanban = new Kanban();
-
 
     const newKanban = await kanban.save();
 
-    newProduct.kanban = newKanban._id;
+    const product = new Product({
+      Name,
+      Status,
+      Image,
+      consumers,
+      Location,
+      totalAmount,
+      kanbans: newKanban._id,
+    });
+
     
-    const productSaved = await newProduct.save();
 
-    const consumer = await Consumer.findById(consumers)
+    const productSaved = await product.save();
+    newKanban.products = productSaved._id
+    
+    await newKanban.save()
 
-    consumer.products.push(productSaved._id)
-    console.log(consumer);
+    const consumer = await Consumer.findById(consumers);
 
-    consumer.save()
-    res.json(productSaved)
+    consumer.products.push(productSaved._id);
 
+    consumer.save();
+
+    res.json(productSaved);
   } catch (error) {
     next(error);
   }
@@ -43,7 +42,6 @@ exports.add = async (req, res, next) => {
 exports.show = (req, res, next) => {
   Product.find({})
     .populate("Kanban")
-    .populate("consumer")
     .then((response) => {
       res.status(200).json(response);
     })
@@ -57,7 +55,6 @@ exports.showById = (req, res, next) => {
 
   Product.findById(id)
     .populate("Kanban")
-    .populate("consumer")
     .then((response) => {
       res.status(200).json(response);
     })

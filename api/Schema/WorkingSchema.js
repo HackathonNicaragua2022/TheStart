@@ -1,17 +1,17 @@
 const { Schema, model } = require("mongoose");
 
 const WorkingSchema = new Schema({
-  name: String,
-  status: String,
+  Name: String,
+  Status: String,
   Image: String,
   Designation: String,
   Country: String,
   HireDate: Date,
   reportsTo: String,
 
-  products: {
+  kanbans: {
     type: Schema.Types.ObjectId,
-    ref: "Product",
+    ref: "Kanban",
   },
   tasks: [
     {
