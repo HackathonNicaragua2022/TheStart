@@ -1,11 +1,11 @@
 const { Schema, model } = require("mongoose");
 
 const KanbanSchema = new Schema({
-  product: {
+  products: {
     type: Schema.Types.ObjectId,
     ref: "Product",
   },
-  task: [
+  tasks: [
     {
       type: Schema.Types.ObjectId,
       ref: "Task",

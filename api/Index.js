@@ -1,4 +1,5 @@
 const express = require('express')
+require('./DB/dbConeccionMongo')
 
 const bodyParser = require('body-parser')
 const cors = require('cors')
