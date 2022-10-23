@@ -1,23 +1,28 @@
-const Task = require("../Schema/TaskSchema");
+
 const Kanban = require("../Schema/KanbanSchema");
 const Working = require("../Schema/WorkingSchema");
+const Task = require("../Schema/TaskSchema");
 
 exports.add = async (req, res, next) => {
   const { Title, Status, Text, workings } = req.body;
 
-  const task = new Task({
-    Title,
-    Status,
-    Text,
-    workings,
-  });
+  
 
   try {
-    console.log("1");
-    console.log(task);
-    const TaskSaved = await task.save();
-    console.log("2");
     const newWorking = await Working.findById(workings);
+
+    const task = new Task({
+        Title,
+        Status,
+        Text,
+        workings,
+        kanbans: newWorking.kanbans
+      });
+
+      console.log(newWorking);
+      console.log(task);
+    
+    const TaskSaved = await task.save();
 
     const kanban = await Kanban.findById(newWorking.kanbans);
 
@@ -37,7 +42,7 @@ exports.add = async (req, res, next) => {
 
 exports.show = (req, res, next) => {
   Task.find({})
-    .populate("Kanban")
+    .populate("kanbans")
     .then((response) => {
       res.status(200).json(response);
     })
@@ -50,7 +55,7 @@ exports.showById = (req, res, next) => {
   const id = req.params.id;
 
   Task.findById(id)
-    .populate("Kanban")
+    .populate("kanbans")
     .then((response) => {
       res.status(200).json(response);
     })

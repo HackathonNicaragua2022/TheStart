@@ -25,7 +25,7 @@ exports.add = async (req, res, next) => {
 
 exports.show = (req, res, next) => {
   Working.find({})
-    .populate("products")
+    .populate("kanbans")
     .then((response) => {
       res.status(200).json(response);
     })
@@ -38,7 +38,7 @@ exports.showById = (req, res, next) => {
   const id = req.params.id;
 
   Working.findById(id)
-    .populate("products")
+    .populate("kanbans")
     .then((response) => {
       res.status(200).json(response);
     })
