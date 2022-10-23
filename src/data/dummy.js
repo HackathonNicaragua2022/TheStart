@@ -399,6 +399,7 @@ export const customersGrid = [
 
 ];
 
+
 export const employeesGrid = [
   { headerText: 'Employee',
     width: '150',
@@ -512,22 +513,22 @@ export const cartData = [
   {
     image:
       product5,
-    name: 'butterscotch ice-cream',
-    category: 'Milk product',
+        name: 'Toys R Us',
+    category: 'Front-React',
     price: '$250',
   },
   {
     image:
       product6,
-    name: 'Supreme fresh tomato',
-    category: 'Vegetable Item',
+    name: 'Madrax',
+    category: 'Backend',
     price: '$450',
   },
   {
     image:
       product7,
-    name: 'Red color candy',
-    category: 'Food Item',
+      name: 'Hotels.com',
+    category: 'Full-Stack',
     price: '$190',
   },
 ];
@@ -1939,38 +1940,38 @@ export const employeesData = [
 export const ordersData = [
   {
     OrderID: 10248,
-    CustomerName: 'Vinet',
+    CustomerName: 'Maria Anders',
 
     TotalAmount: 32.38,
-    OrderItems: 'Fresh Tomato',
+    OrderItems: 'Madrax',
     Location: 'USA',
     Status: 'pending',
     StatusBg: '#FB9678',
     ProductImage:
-      product6,
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkHw9egkpJeyxtmgHLpk12QBiMwayHRi2VwA&usqp=CAU',
   },
   {
     OrderID: 748975,
-    CustomerName: 'Miron Vitold',
+    CustomerName: 'Ana Trujillo',
     TotalAmount: 23.99,
-    OrderItems: 'Healthcare Erbology',
+    OrderItems: 'Mothel.com',
     Location: 'Spain',
     Status: 'rejected',
     StatusBg: 'red',
     ProductImage:
-    product1,
+    'https://cdn.wallpapersafari.com/97/60/3tEHxT.jpg',
   },
 
   {
     OrderID: 874534,
     CustomerName: 'Danai',
     TotalAmount: 122.99,
-    OrderItems: 'Watch',
+    OrderItems: 'Way.com',
     Location: 'USA',
     Status: 'canceled',
     StatusBg: '#FF5C8E',
     ProductImage:
-      'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/pop-womens-garmin-watches-1641919013.jpg?crop=0.502xw:1.00xh;0.250xw,0&resize=640:*',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT04bMh32wty9ebzCyJt2dASqxUe5bjZ695RQ&usqp=CAU',
   },
 
   {
@@ -1982,7 +1983,7 @@ export const ordersData = [
     Status: 'canceled',
     StatusBg: '#FF5C8E',
     ProductImage:
-      product4,
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJnmAAkMk1U-JO2gyK1AAEEJejL3R0TgEkDA&usqp=CAU',
   },
   
 
@@ -1990,47 +1991,47 @@ export const ordersData = [
     OrderID: 944895,
     CustomerName: 'Lulia albu',
     TotalAmount: 17.99,
-    OrderItems: 'Skincare',
+      OrderItems: 'General Motors',
     Location: 'USA',
     Status: 'active',
     StatusBg: '#03C9D7',
     ProductImage:
-      product3,
+      '',
   },
 
   {
     OrderID: 24546,
-    CustomerName: 'Frank',
+    CustomerName: 'Frank Ritz',
     TotalAmount: 84.99,
-    OrderItems: 'Pan Cake',
+      OrderItems: 'Toys R Us',
     Location: 'Delhi',
     Status: 'complete',
     StatusBg: '#8BE78B',
     ProductImage:
-      'https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQguwMiwfeLtVUMtjlgqXob3Um4zw2yWxvyGQ&usqp=CAU',
   },
 
   {
     OrderID: 345653,
     CustomerName: 'Carson Darrin',
     TotalAmount: 56.34,
-    OrderItems: 'Butter Scotch',
+      OrderItems: 'Toys R Us',
     Location: 'Delhi',
     Status: 'complete',
     StatusBg: '#8BE78B',
     ProductImage:
-      product5,
+      'https://intl-blog.imgix.net/wp-content/uploads/2019/05/administrador-de-tarea-vs-gestor-de-proyectos.jpg?auto=format%2Cenhance%2Ccompress',
   },
   {
     OrderID: 845954,
-    CustomerName: 'Penjani',
+    CustomerName: 'Penjani Inyene',
     TotalAmount: 59.99,
-    OrderItems: 'Headphone',
+      OrderItems: 'léxicos',
     Location: 'USA',
     Status: 'complete',
     StatusBg: '#8BE78B',
     ProductImage:
-      product4,
+      'https://www.ecured.cu/images/thumb/f/fd/Gesti%C3%B3n-de-Proyectos.jpg/260px-Gesti%C3%B3n-de-Proyectos.jpg',
   },
   {
     OrderID: 845954,
@@ -2041,30 +2042,30 @@ export const ordersData = [
     Status: 'pending',
     StatusBg: '#FB9678',
     ProductImage:
-      'https://cdn.shopclues.com/images1/thumbnails/104158/320/320/148648730-104158193-1592481791.jpg',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-z5IFdbgjFDmQmc_8gkosbgG2-JKlqu5xgw&usqp=CAU',
   },
 
   {
     OrderID: 38489,
-    CustomerName: 'Miron',
+    CustomerName: 'Ronald Martinez',
     TotalAmount: 87.99,
-    OrderItems: 'Ice Cream',
+    OrderItems: 'PlannerNet',
     Location: 'USA',
     Status: 'active',
     StatusBg: '#03C9D7',
     ProductImage:
-      'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/dairy-free-ice-cream-eae372d.jpg',
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNlaYWCI69oEpAKhPmkUyoEeFdU87t94E0Kg&usqp=CAU',
   },
   {
     OrderID: 390457,
     CustomerName: 'Fran Perez',
     TotalAmount: 93.31,
-    OrderItems: 'Candy Gucci',
+    OrderItems: 'FrusionsDeer',
     Location: 'New York',
     Status: 'active',
     StatusBg: '#03C9D7',
     ProductImage:
-      product7,
+      'https://cdnb.ganttpro.com/uploads/2021/11/software-de-gestion-de-proyectos-1.png',
   },
 ];
 
@@ -2446,10 +2447,10 @@ export const stackedPrimaryYAxis = {
 
 export const kanbanData = [
   {
-    Id: 'Task 1',
+    Id: 'Carlos Jr',
     Title: 'Task - 29001',
     Status: 'Open',
-    Summary: 'Analyze the new requirements gathered from the customer.',
+    Summary: 'Login, realizar registro y inicio de seccion.',
     Type: 'Story',
     Priority: 'Low',
     Tags: 'Analyze,Customer',
@@ -2460,7 +2461,7 @@ export const kanbanData = [
     ClassName: 'e-story, e-low, e-nancy-davloio',
   },
   {
-    Id: 'Task 2',
+    Id: 'Mario H',
     Title: 'Task - 29002',
     Status: 'InProgress',
     Summary: 'Improve application performance',
@@ -2474,10 +2475,10 @@ export const kanbanData = [
     ClassName: 'e-improvement, e-normal, e-andrew-fuller',
   },
   {
-    Id: 'Task 3',
+    Id: ' Roger V',
     Title: 'Task - 29003',
     Status: 'Open',
-    Summary: 'Arrange a web meeting with the customer to get new requirements.',
+    Summary: 'Recolectar la info soicitada por la api desde el back.',
     Type: 'Others',
     Priority: 'Critical',
     Tags: 'Meeting',
@@ -2488,7 +2489,7 @@ export const kanbanData = [
     ClassName: 'e-others, e-critical, e-janet-leverling',
   },
   {
-    Id: 'Task 4',
+    Id: 'Victor Gomez',
     Title: 'Task - 29004',
     Status: 'InProgress',
     Summary: 'Fix the issues reported in the IE browser.',
@@ -2502,7 +2503,7 @@ export const kanbanData = [
     ClassName: 'e-bug, e-release, e-janet-leverling',
   },
   {
-    Id: 'Task 5',
+    Id: 'Luis D',
     Title: 'Task - 29005',
     Status: 'Review',
     Summary: 'Fix the issues reported by the customer.',
@@ -2516,7 +2517,7 @@ export const kanbanData = [
     ClassName: 'e-bug, e-low, e-steven-walker',
   },
   {
-    Id: 'Task 6',
+    Id: 'Margareth L',
     Title: 'Task - 29007',
     Status: 'Validate',
     Summary: 'Validate new requirements',
@@ -2530,10 +2531,10 @@ export const kanbanData = [
     ClassName: 'e-improvement, e-low, e-robert-king',
   },
   {
-    Id: 'Task 7',
+    Id: 'Fernandez M',
     Title: 'Task - 29009',
     Status: 'Review',
-    Summary: 'Fix the issues reported in Safari browser.',
+    Summary: 'Soporte del home en pwa.',
     Type: 'Bug',
     Priority: 'Critical',
     Tags: 'Fix,Safari',
@@ -2544,7 +2545,7 @@ export const kanbanData = [
     ClassName: 'e-bug, e-release, e-nancy-davloio',
   },
   {
-    Id: 'Task 8',
+    Id: 'David A',
     Title: 'Task - 29010',
     Status: 'Close',
     Summary: 'Test the application in the IE browser.',
@@ -2558,7 +2559,7 @@ export const kanbanData = [
     ClassName: 'e-story, e-low, e-margaret-hamilt',
   },
   {
-    Id: 'Task 9',
+    Id: 'Tamara r',
     Title: 'Task - 29011',
     Status: 'Validate',
     Summary: 'Validate the issues reported by the customer.',
@@ -2572,10 +2573,10 @@ export const kanbanData = [
     ClassName: 'e-story, e-high, e-steven-walker',
   },
   {
-    Id: 'Task 10',
+    Id: 'Francisco L',
     Title: 'Task - 29015',
     Status: 'Open',
-    Summary: 'Show the retrieved data from the server in grid control.',
+    Summary: 'Gestionar el consumo de Api con express.',
     Type: 'Story',
     Priority: 'High',
     Tags: 'Database,SQL',
@@ -2586,7 +2587,7 @@ export const kanbanData = [
     ClassName: 'e-story, e-high, e-margaret-hamilt',
   },
   {
-    Id: 'Task 11',
+    Id: 'Maricela C',
     Title: 'Task - 29016',
     Status: 'InProgress',
     Summary: 'Fix cannot open user’s default database SQL error.',
@@ -2600,7 +2601,7 @@ export const kanbanData = [
     ClassName: 'e-bug, e-critical, e-janet-leverling',
   },
   {
-    Id: 'Task 12',
+    Id: 'Joseth H',
     Title: 'Task - 29017',
     Status: 'Review',
     Summary: 'Fix the issues reported in data binding.',
@@ -2614,7 +2615,7 @@ export const kanbanData = [
     ClassName: 'e-story, e-normal, e-janet-leverling',
   },
   {
-    Id: 'Task 13',
+    Id: 'Mario U',
     Title: 'Task - 29018',
     Status: 'Close',
     Summary: 'Analyze SQL server 2008 connection.',
@@ -2628,7 +2629,7 @@ export const kanbanData = [
     ClassName: 'e-story, e-release, e-andrew-fuller',
   },
   {
-    Id: 'Task 14',
+    Id: 'Stiven HJ',
     Title: 'Task - 29019',
     Status: 'Validate',
     Summary: 'Validate databinding issues.',
@@ -2642,7 +2643,7 @@ export const kanbanData = [
     ClassName: 'e-story, e-low, e-margaret-hamilt',
   },
   {
-    Id: 'Task 15',
+    Id: 'Lester rocha',
     Title: 'Task - 29020',
     Status: 'Close',
     Summary: 'Analyze grid control.',
@@ -2656,7 +2657,7 @@ export const kanbanData = [
     ClassName: 'e-story, e-high, e-margaret-hamilt',
   },
   {
-    Id: 'Task 16',
+    Id: 'Blanca jo',
     Title: 'Task - 29021',
     Status: 'Close',
     Summary: 'Stored procedure for initial data binding of the grid.',
@@ -2670,7 +2671,7 @@ export const kanbanData = [
     ClassName: 'e-others, e-release, e-steven-walker',
   },
   {
-    Id: 'Task 17',
+    Id: 'Saira m Janet',
     Title: 'Task - 29022',
     Status: 'Close',
     Summary: 'Analyze stored procedures.',
@@ -2684,7 +2685,7 @@ export const kanbanData = [
     ClassName: 'e-story, e-release, e-janet-leverling',
   },
   {
-    Id: 'Task 18',
+    Id: 'Saira m Fuller',
     Title: 'Task - 29023',
     Status: 'Validate',
     Summary: 'Validate editing issues.',
@@ -2698,7 +2699,7 @@ export const kanbanData = [
     ClassName: 'e-story, e-critical, e-nancy-davloio',
   },
   {
-    Id: 'Task 19',
+    Id: 'Hamilton Lucas',
     Title: 'Task - 29024',
     Status: 'Review',
     Summary: 'Test editing functionality.',
@@ -2712,7 +2713,7 @@ export const kanbanData = [
     ClassName: 'e-story, e-normal, e-nancy-davloio',
   },
   {
-    Id: 'Task 20',
+    Id: 'Tara M',
     Title: 'Task - 29025',
     Status: 'Open',
     Summary: 'Enhance editing functionality.',
@@ -2726,7 +2727,7 @@ export const kanbanData = [
     ClassName: 'e-improvement, e-low, e-andrew-fuller',
   },
   {
-    Id: 'Task 21',
+    Id: 'Logan Fernandez',
     Title: 'Task - 29026',
     Status: 'InProgress',
     Summary: 'Improve the performance of the editing functionality.',
@@ -2740,7 +2741,7 @@ export const kanbanData = [
     ClassName: 'e-epic, e-high, e-nancy-davloio',
   },
   {
-    Id: 'Task 22',
+    Id: 'jR J Marin',
     Title: 'Task - 29027',
     Status: 'Open',
     Summary: 'Arrange web meeting with the customer to show editing demo.',
@@ -2754,7 +2755,7 @@ export const kanbanData = [
     ClassName: 'e-others, e-high, e-steven-walker',
   },
   {
-    Id: 'Task 23',
+    Id: 'Veronica L',
     Title: 'Task - 29029',
     Status: 'Review',
     Summary: 'Fix the editing issues reported by the customer.',
@@ -2768,7 +2769,7 @@ export const kanbanData = [
     ClassName: 'e-bug, e-low, e-janet-leverling',
   },
   {
-    Id: 'Task 24',
+      Id: 'steven-walker',
     Title: 'Task - 29030',
     Status: 'Testing',
     Summary: 'Fix the issues reported by the customer.',
@@ -2782,7 +2783,7 @@ export const kanbanData = [
     ClassName: 'e-bug, e-critical, e-steven-walker',
   },
   {
-    Id: 'Task 25',
+    Id: 'Sarahi maguire',
     Title: 'Task - 29031',
     Status: 'Testing',
     Summary: 'Fix the issues reported in Safari browser.',

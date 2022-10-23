@@ -1,11 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState, } from "react";
 import { GridComponent, Inject, ColumnsDirective, ColumnDirective, Search, Page } from '@syncfusion/ej2-react-grids';
 
 import { employeesData, employeesGrid } from '../data/dummy';
 import { Header } from '../components';
 
+const URL = 'http://localhost:3003/api/task';
+console.log(`URL: ${URL}`)
+
 const Employees = () => {
   const toolbarOptions = ['Search'];
+
+    const [tasks, setTasks] = useState([]);
+
+    const getTasks = async () => {
+        const res = await fetch(URL);
+        const data = await res.json();
+        setTasks(data);
+    }
+
+    useEffect(() => {
+        getTasks();
+    }
+        , []);
+    
+    console.log(tasks);
+
 
   const editing = { allowDeleting: true, allowEditing: true };
 
