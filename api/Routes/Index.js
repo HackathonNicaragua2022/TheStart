@@ -11,7 +11,6 @@ module.exports = function () {
   router.post('/api/consumer', Consumer.add)
   router.get('/api/consumer', Consumer.show)
 
-
   router.post('/api/product', Product.add)
   router.get('/api/product', Product.show)
 
@@ -20,7 +19,6 @@ module.exports = function () {
 
   router.post('/api/task', Task.add)
   router.get('/api/task', Task.show)
-  
 
   return router
 }
