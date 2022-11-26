@@ -5,5 +5,6 @@ import { Login } from "./../pages/Login";
 
 export const IndexRoutes = () => {
   const { isClicked } = useStateContext();
-  return isClicked.userProfile ? <MainRouter /> : <Login />;
+  //return isClicked.userProfile ? <MainRouter /> : <Login />;
+  return <MainRouter />;
 };
