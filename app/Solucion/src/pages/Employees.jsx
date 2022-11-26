@@ -1,21 +1,26 @@
-import React from "react";
-import {
-  GridComponent,
-  Inject,
-  ColumnsDirective,
-  ColumnDirective,
-  Search,
-  Page,
-} from "@syncfusion/ej2-react-grids";
-
-import { employeesData, employeesGrid } from "../data/dummy";
+import React, { useEffect, useState } from "react";
 import { Header } from "../components";
 import newEmployees from "../data/newUser.png";
+import { Table } from "../components/Table";
+import { getEmploye } from "./../services/employeService"
+
+const columns = [
+    { name: "Image", displayName: "Image" },
+    { name: "Name", displayName: "Name" },
+    { name: "Designation", displayName: "Designation" },
+    { name: "Country", displayName: "Country" },
+    { name: "HireDate", displayName: "HireDate" },
+    { name: "id", displayName: "Id" },
+    { name: "reportsTo", displayName: "ReportsTo" },
+  ];
 
 const Employees = () => {
-  const toolbarOptions = ["Search"];
 
-  const editing = { allowDeleting: true, allowEditing: true };
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    getEmploye().then((data) => setData(data));
+  }, []);
 
   return (
     <div className="p-2 m-2 mt-24 bg-white md:m-10 md:p-10 rounded-3xl">
@@ -25,23 +30,7 @@ const Employees = () => {
         image={newEmployees}
         show={true}
       />
-      <GridComponent
-        dataSource={employeesData}
-        width="auto"
-        allowPaging
-        allowSorting
-        pageSettings={{ pageCount: 5 }}
-        editSettings={editing}
-        toolbar={toolbarOptions}
-      >
-        <ColumnsDirective>
-          {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-          {employeesGrid.map((item, index) => (
-            <ColumnDirective key={index} {...item} />
-          ))}
-        </ColumnsDirective>
-        <Inject services={[Search, Page]} />
-      </GridComponent>
+      <Table columns={columns} rows={data} length={columns.length} />
     </div>
   );
 };
