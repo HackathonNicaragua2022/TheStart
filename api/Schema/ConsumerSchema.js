@@ -6,6 +6,7 @@ const ConsumerSchema = new Schema({
   Week: Number,
   Butget: Number,
   Location: String,
+  Image: String,
   products: [
     {
       type: Schema.Types.ObjectId,
