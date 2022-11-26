@@ -1,9 +1,26 @@
 import "./login.css"
 import logo from "./../data/logo.png"
+import { login } from "../services/workingService"
+import { useState } from "react";
+import { useStateContext } from "./../contexts/ContextProvider"
 
 export const Login = () => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
-    
+    const { setUser, handleClick } = useStateContext();
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        let body = {email, password}
+        login(body).then(response => {
+            if (response.length) {
+                handleClick("userProfile") 
+                setUser(response[0])
+            }
+        })
+    }
+
 
   return (
     <div className=".bg-main-bg container-login w-full min-h-screen flex-2 ">
@@ -16,15 +33,15 @@ export const Login = () => {
         </p>
       </div>
 
-      <div className="form">
+      <form className="form" onSubmit={handleSubmit}>
         <h3>Iniciar session</h3>
 
         <div className="input">
           <div className="inputBox">
-            <input type="text" name="" placeholder="Email" />
+            <input type="text" value={email} onChange={(e)=> setEmail(e.target.value)} name="" placeholder="Email" />
           </div>
           <div className="inputBox">
-            <input type="password" name="" placeholder="password" />
+            <input type="password" value={password} onChange={(e)=> setPassword(e.target.value)} name="" placeholder="password" />
           </div>
           <div className="inputBox">
             <input type="submit" name="" value="Login" />
@@ -32,7 +49,7 @@ export const Login = () => {
         </div>
         <p className="login">
         </p>
-      </div>
+      </form>
     </div>
   );
 };

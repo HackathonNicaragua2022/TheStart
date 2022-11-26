@@ -1,9 +1,11 @@
 const { Schema, model } = require("mongoose");
 
 const TaskSchema = new Schema({
-  Status:Number,
   Title: String,
-  Text: String,
+  Status:String,
+  Summary: String,
+  Type: String,
+  Priority: String,
   finalDate: Date,
   startDate: Date,
   kanbans:{

@@ -4,27 +4,31 @@ const Working = require("../Schema/WorkingSchema");
 const Task = require("../Schema/TaskSchema");
 
 exports.add = async (req, res, next) => {
-  const { Title, Status, Text, workings } = req.body;
+  const { Title, Status, Summary, workings, Type, Priority, finalDate, startDate } = req.body;
 
   
 
   try {
-    const newWorking = await Working.findById(workings);
+    const newWorking = await Working.findById(workings).populate("products");
 
     const task = new Task({
         Title,
         Status,
-        Text,
+        Summary,
         workings,
-        kanbans: newWorking.kanbans
+        kanbans: newWorking.kanbans,
+        Type,
+        Priority,
+        startDate,
+        finalDate
       });
 
-      console.log(newWorking);
-      console.log(task);
+      
     
     const TaskSaved = await task.save();
 
-    const kanban = await Kanban.findById(newWorking.kanbans);
+    const kanban = await Kanban.findById(newWorking.products.kanbans._id);
+    console.log(kanban);
 
     kanban.tasks.push(TaskSaved._id);
 
