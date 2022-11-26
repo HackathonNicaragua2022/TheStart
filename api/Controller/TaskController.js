@@ -1,30 +1,34 @@
-
 const Kanban = require("../Schema/KanbanSchema");
 const Working = require("../Schema/WorkingSchema");
 const Task = require("../Schema/TaskSchema");
 
 exports.add = async (req, res, next) => {
-  const { Title, Status, Summary, workings, Type, Priority, finalDate, startDate } = req.body;
-
-  
+  const {
+    Title,
+    Status,
+    Summary,
+    workings,
+    Type,
+    Priority,
+    finalDate,
+    startDate,
+  } = req.body;
 
   try {
     const newWorking = await Working.findById(workings).populate("products");
 
     const task = new Task({
-        Title,
-        Status,
-        Summary,
-        workings,
-        kanbans: newWorking.kanbans,
-        Type,
-        Priority,
-        startDate,
-        finalDate
-      });
+      Title,
+      Status,
+      Summary,
+      workings,
+      kanbans: newWorking.kanbans,
+      Type,
+      Priority,
+      startDate,
+      finalDate,
+    });
 
-      
-    
     const TaskSaved = await task.save();
 
     const kanban = await Kanban.findById(newWorking.products.kanbans._id);
@@ -47,6 +51,7 @@ exports.add = async (req, res, next) => {
 exports.show = (req, res, next) => {
   Task.find({})
     .populate("kanbans")
+    //.populate("workings")
     .then((response) => {
       res.status(200).json(response);
     })

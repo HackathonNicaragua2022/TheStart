@@ -2,17 +2,17 @@ const { Schema, model } = require("mongoose");
 
 const TaskSchema = new Schema({
   Title: String,
-  Status:String,
+  Status: String,
   Summary: String,
   Type: String,
   Priority: String,
   finalDate: Date,
   startDate: Date,
-  kanbans:{
+  kanbans: {
     type: Schema.Types.ObjectId,
     ref: "Kanban",
   },
-  workings:{
+  workings: {
     type: Schema.Types.ObjectId,
     ref: "Working",
   },
@@ -20,7 +20,7 @@ const TaskSchema = new Schema({
 
 TaskSchema.set("toJSON", {
   transform: (document, returnedObject) => {
-    returnedObject.id = returnedObject._id;
+    returnedObject.Id = returnedObject._id;
     delete returnedObject._id;
     delete returnedObject.__v;
   },
