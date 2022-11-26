@@ -50,6 +50,7 @@ const styles = {
     fontSize: "1em",
     marginTop: "20px",
     marginBottom: "20px",
+    borderBottom: "1px solid #DADEDF",
   },
   image: {
     display: "flex",

@@ -1,17 +1,30 @@
-import React from 'react';
-import { GridComponent, Inject, ColumnsDirective, ColumnDirective, Search, Page } from '@syncfusion/ej2-react-grids';
+import React from "react";
+import {
+  GridComponent,
+  Inject,
+  ColumnsDirective,
+  ColumnDirective,
+  Search,
+  Page,
+} from "@syncfusion/ej2-react-grids";
 
-import { employeesData, employeesGrid } from '../data/dummy';
-import { Header } from '../components';
+import { employeesData, employeesGrid } from "../data/dummy";
+import { Header } from "../components";
+import newEmployees from "../data/newUser.png";
 
 const Employees = () => {
-  const toolbarOptions = ['Search'];
+  const toolbarOptions = ["Search"];
 
   const editing = { allowDeleting: true, allowEditing: true };
 
   return (
-    <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
-      <Header category="Page" title="Employees" />
+    <div className="p-2 m-2 mt-24 bg-white md:m-10 md:p-10 rounded-3xl">
+      <Header
+        category="Page"
+        title="Employees"
+        image={newEmployees}
+        show={true}
+      />
       <GridComponent
         dataSource={employeesData}
         width="auto"
@@ -23,10 +36,11 @@ const Employees = () => {
       >
         <ColumnsDirective>
           {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-          {employeesGrid.map((item, index) => <ColumnDirective key={index} {...item} />)}
+          {employeesGrid.map((item, index) => (
+            <ColumnDirective key={index} {...item} />
+          ))}
         </ColumnsDirective>
         <Inject services={[Search, Page]} />
-
       </GridComponent>
     </div>
   );
