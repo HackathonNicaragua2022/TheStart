@@ -51,7 +51,7 @@ exports.showWorkingTask = (req, res, next) => {
 
   exports.login = (req, res, next) => {
     const { password, email } = req.body;
-console.log("entra");
+
     Working.find({ password, email })
       .then((response) => {
         res.status(200).json(response);

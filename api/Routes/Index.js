@@ -16,6 +16,8 @@ module.exports = function () {
 
   router.post('/api/working', Working.add)
   router.get('/api/working', Working.show)
+  router.get('/api/working/:id', Working.showById)
+  router.get('/api/workingTask/:id', Working.showWorkingTask)
 
   router.post('/api/task', Task.add)
   router.get('/api/task', Task.show)
