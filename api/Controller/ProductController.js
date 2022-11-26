@@ -20,12 +20,10 @@ exports.add = async (req, res, next) => {
       kanbans: newKanban._id,
     });
 
-    
-
     const productSaved = await product.save();
-    newKanban.products = productSaved._id
-    
-    await newKanban.save()
+    newKanban.products = productSaved._id;
+
+    await newKanban.save();
 
     const consumer = await Consumer.findById(consumers);
 
@@ -44,11 +42,11 @@ exports.show = (req, res, next) => {
     .populate("kanbans")
     .populate("consumers")
     .then((response) => {
-        // response.forEach(element => {
-        //      Consumer.findById(element.consumers).then((response) => {
-        //         element.consumers = response.Name
-        //       })
-        // });
+      // response.forEach(element => {
+      //      Consumer.findById(element.consumers).then((response) => {
+      //         element.consumers = response.Name
+      //       })
+      // });
       res.status(200).json(response);
     })
     .catch((error) => {

@@ -10,3 +10,11 @@ export const getProducts = async () => {
       return data;
     });
 };
+
+export const getProductById = async (id) => {
+  return await fetch(`http://localhost:3001/api/product/${id}`)
+    .then((res) => res.json())
+    .then((data) => {
+      return data;
+    });
+};

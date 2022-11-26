@@ -5,6 +5,7 @@ const Consumer = require("../Controller/ConsumerController");
 const Product = require("../Controller/ProductController");
 const Working = require("../Controller/WorkingController");
 const Task = require("../Controller/TaskController");
+const Kanban = require("../Controller/kanbanController");
 
 module.exports = function () {
   /*****************  USER  ********************/
@@ -13,6 +14,7 @@ module.exports = function () {
 
   router.post("/api/product", Product.add);
   router.get("/api/product", Product.show);
+  router.get("/api/product/:id", Product.showById);
 
   router.post("/api/working", Working.add);
   router.get("/api/working", Working.show);
@@ -22,6 +24,9 @@ module.exports = function () {
   router.post("/api/task", Task.add);
   router.get("/api/task", Task.show);
   router.put("/api/task/:id", Task.updateById);
+
+  router.get("/api/kanban", Kanban.show);
+  router.get("/api/kanban/:id", Kanban.showById);
 
   router.post("/api/login", Working.login);
 
