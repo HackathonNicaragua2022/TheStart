@@ -6,19 +6,20 @@ export const Table = ({ columns, rows }) => {
         <div style={styles.orderColumns}>{column.displayName}</div>
       ))}
 
-      {rows.map((row) => (
-        <>
-          {columns.map((column, index) => {
-            if (column.name === "Image") {
-              return (
-                <img style={styles.image} src={row.Image} alt={row.Name} />
-              );
-            } else {
-              return <div style={styles.orderFilas}>{row[column.name]}</div>;
-            }
-          })}
-        </>
-      ))}
+      {rows &&
+        rows.map((row) => (
+          <>
+            {columns.map((column, index) => {
+              if (column.name === "Image") {
+                return (
+                  <img style={styles.image} src={row.Image} alt={row.Name} />
+                );
+              } else {
+                return <div style={styles.orderFilas}>{row[column.name]}</div>;
+              }
+            })}
+          </>
+        ))}
     </div>
   );
 };
