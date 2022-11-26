@@ -7,8 +7,9 @@ import { Navbar, Footer, Sidebar, ThemeSettings } from '../components';
 import { Home, Products, Calendar, Employees, Stacked, Pyramid, Customers, Kanban, Line, Area, Bar, Pie, Financial, ColorPicker, ColorMapping, Editor } from '../pages';
 import '../App.css';
 import { useStateContext } from '../contexts/ContextProvider';
+import { Login } from '../pages/Login';
 
-export const AppRouter = () => {
+export const MainRouter = () => {
   const { setCurrentColor, setCurrentMode, currentMode, activeMenu, currentColor, themeSettings, setThemeSettings } = useStateContext();
 
   useEffect(() => {
@@ -59,6 +60,8 @@ export const AppRouter = () => {
             <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full ">
               <Navbar />
             </div>
+
+            
             <div>
               {themeSettings && (<ThemeSettings />)}
 
@@ -87,6 +90,7 @@ export const AppRouter = () => {
                 <Route path="/color-mapping" element={<ColorMapping />} />
                 <Route path="/pyramid" element={<Pyramid />} />
                 <Route path="/stacked" element={<Stacked />} />
+                <Route path="/login" element={<Login />} />
               </Routes>
             </div>
             <Footer />

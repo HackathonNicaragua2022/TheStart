@@ -42,7 +42,13 @@ exports.add = async (req, res, next) => {
 exports.show = (req, res, next) => {
   Product.find({})
     .populate("kanbans")
+    .populate("consumers")
     .then((response) => {
+        // response.forEach(element => {
+        //      Consumer.findById(element.consumers).then((response) => {
+        //         element.consumers = response.Name
+        //       })
+        // });
       res.status(200).json(response);
     })
     .catch((error) => {

@@ -8,10 +8,11 @@ const WorkingSchema = new Schema({
   Country: String,
   HireDate: Date,
   reportsTo: String,
-
-  kanbans: {
+  password: String,
+  email: String,
+  products: {
     type: Schema.Types.ObjectId,
-    ref: "Kanban",
+    ref: "Product",
   },
   tasks: [
     {

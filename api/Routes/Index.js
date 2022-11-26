@@ -20,5 +20,7 @@ module.exports = function () {
   router.post('/api/task', Task.add)
   router.get('/api/task', Task.show)
 
+  router.post('/api/login', Working.login)
+
   return router
 }

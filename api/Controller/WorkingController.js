@@ -1,7 +1,7 @@
 const Working = require("../Schema/WorkingSchema");
 
 exports.add = async (req, res, next) => {
-  const { Name, Status, Image, Designation, Country, HireDate, reportsTo, kanbans } = req.body;
+  const { Name, Status, Image, Designation, Country, HireDate, reportsTo, products, password, email } = req.body;
 
   try {
     const working = new Working({
@@ -12,7 +12,9 @@ exports.add = async (req, res, next) => {
         Country,
         HireDate,
         reportsTo,
-        kanbans,
+        products,
+        password,
+        email,
       });
 
     const newWorking = await working.save();
@@ -25,7 +27,7 @@ exports.add = async (req, res, next) => {
 
 exports.show = (req, res, next) => {
   Working.find({})
-    .populate("kanbans")
+    .populate("products")
     .then((response) => {
       res.status(200).json(response);
     })
@@ -34,11 +36,36 @@ exports.show = (req, res, next) => {
     });
 };
 
+exports.showWorkingTask = (req, res, next) => {
+    const id = req.params.id;
+
+    Working.findById(id)
+      .populate("tasks")
+      .then((response) => {
+        res.status(200).json(response);
+      })
+      .catch((error) => {
+        next(error);
+      });
+  };
+
+  exports.login = (req, res, next) => {
+    const { password, email } = req.body;
+console.log("entra");
+    Working.find({ password, email })
+      .then((response) => {
+        res.status(200).json(response);
+      })
+      .catch((error) => {
+        next(error);
+      });
+  };
+
 exports.showById = (req, res, next) => {
   const id = req.params.id;
 
   Working.findById(id)
-    .populate("kanbans")
+    .populate("products")
     .then((response) => {
       res.status(200).json(response);
     })

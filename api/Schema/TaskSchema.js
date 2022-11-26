@@ -4,6 +4,8 @@ const TaskSchema = new Schema({
   Status:Number,
   Title: String,
   Text: String,
+  finalDate: Date,
+  startDate: Date,
   kanbans:{
     type: Schema.Types.ObjectId,
     ref: "Kanban",

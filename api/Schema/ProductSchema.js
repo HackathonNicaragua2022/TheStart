@@ -4,6 +4,8 @@ const ProductSchema = new Schema({
   Name: String,
   Image: String,
   Status: String,
+  finalDate: Date,
+  startDate: Date,
   consumers: {
     type: Schema.Types.ObjectId,
     ref: "Consumer",
