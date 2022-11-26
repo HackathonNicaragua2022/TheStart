@@ -1,25 +1,27 @@
-import React from "react";
-import {
-  GridComponent,
-  ColumnsDirective,
-  ColumnDirective,
-  Page,
-  Selection,
-  Inject,
-  Edit,
-  Toolbar,
-  Sort,
-  Filter,
-} from "@syncfusion/ej2-react-grids";
-
-import { customersData, customersGrid } from "../data/dummy";
+import React, { useEffect, useState } from "react";
 import { Header } from "../components";
 import newCustomer from "../data/newUser.png";
+import { Table } from "../components/Table";
+import { getCustomer } from "./../services/customerService"
+
+const columns = [
+    { name: "Image", displayName: "Image" },
+    { name: "Name", displayName: "Name" },
+    { name: "Status", displayName: "Status" },
+    { name: "Butget", displayName: "Butget" },
+    { name: "Week", displayName: "Week" },
+    { name: "id", displayName: "Id" },
+    { name: "Location", displayName: "Location" },
+    { name: "products", displayName: "products" },
+  ];
 
 const Customers = () => {
-  const selectionsettings = { persistSelection: true };
-  const toolbarOptions = ["Delete"];
-  const editing = { allowDeleting: true, allowEditing: true };
+
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    getCustomer().then((data) => setData(data));
+  }, []);
 
   return (
     <div className="p-2 m-2 mt-24 bg-white md:m-10 md:p-10 rounded-3xl">
@@ -29,24 +31,7 @@ const Customers = () => {
         image={newCustomer}
         show={true}
       />
-      <GridComponent
-        dataSource={customersData}
-        enableHover={false}
-        allowPaging
-        pageSettings={{ pageCount: 5 }}
-        selectionSettings={selectionsettings}
-        toolbar={toolbarOptions}
-        editSettings={editing}
-        allowSorting
-      >
-        <ColumnsDirective>
-          {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-          {customersGrid.map((item, index) => (
-            <ColumnDirective key={index} {...item} />
-          ))}
-        </ColumnsDirective>
-        <Inject services={[Page, Selection, Toolbar, Edit, Sort, Filter]} />
-      </GridComponent>
+      <Table columns={columns} rows={data} length={columns.length} />
     </div>
   );
 };

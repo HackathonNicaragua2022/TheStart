@@ -1,5 +1,44 @@
-export const Table = ({ columns, rows }) => {
-  console.log("rows: ", rows);
+export const Table = ({ columns, rows, length }) => {
+  
+    const styles = {
+        orderTable: {
+          width: "100%",
+          background: "white",
+          margin: "30px auto",
+          padding: "20px",
+          border: "1px solid #DADEDF",
+          display: "grid",
+          gridTemplateColumns: `repeat(${length}, 1fr)`,
+          borderRadius: "8px",
+        },
+        orderColumns: {
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          fontWeight: "bold",
+          fontSize: "1em",
+        },
+        orderFilas: {
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          padding: "10px",
+          fontSize: "1em",
+          marginTop: "20px",
+          marginBottom: "20px",
+          borderBottom: "1px solid #DADEDF",
+        },
+        image: {
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          marginTop: "20px",
+          marginBottom: "20px",
+          objectFit: "cover",
+          borderRadius: "5px",
+        },
+      };
+
   return (
     <div style={styles.orderTable}>
       {columns.map((column) => (
@@ -22,43 +61,4 @@ export const Table = ({ columns, rows }) => {
         ))}
     </div>
   );
-};
-
-const styles = {
-  orderTable: {
-    width: "100%",
-    background: "white",
-    margin: "30px auto",
-    padding: "20px",
-    border: "1px solid #DADEDF",
-    display: "grid",
-    gridTemplateColumns: "repeat(7, 1fr)",
-    borderRadius: "8px",
-  },
-  orderColumns: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    fontWeight: "bold",
-    fontSize: "1em",
-  },
-  orderFilas: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    padding: "10px",
-    fontSize: "1em",
-    marginTop: "20px",
-    marginBottom: "20px",
-    borderBottom: "1px solid #DADEDF",
-  },
-  image: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: "20px",
-    marginBottom: "20px",
-    objectFit: "cover",
-    borderRadius: "5px",
-  },
 };

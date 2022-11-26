@@ -16,13 +16,13 @@ exports.add = async (req, res, next) => {
 
   try {
     const newWorking = await Working.findById(workings).populate("products");
-
+    console.log(newWorking);
     const task = new Task({
       Title,
       Status,
       Summary,
       workings,
-      kanbans: newWorking.kanbans,
+      kanbans: newWorking.products.kanbans,
       Type,
       Priority,
       startDate,
@@ -71,4 +71,14 @@ exports.showById = (req, res, next) => {
     .catch((error) => {
       next(error);
     });
+};
+exports.updateById = (req, res, next) => {
+  const id = req.params.id;
+  const newTaskInfo = req.body;
+
+  Task.findByIdAndUpdate(id, newTaskInfo)
+    .then((task) => {
+      res.status(200).send(task);
+    })
+    .catch((error) => next(error));
 };

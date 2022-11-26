@@ -34,7 +34,7 @@ const Products = () => {
         show={true}
         execute={showModal}
       />
-      <Table columns={columns} rows={data} />
+      <Table columns={columns} rows={data} length={columns.length} />
       {modal && <Modal />}
     </div>
   );

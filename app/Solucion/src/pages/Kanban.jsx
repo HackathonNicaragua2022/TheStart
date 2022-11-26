@@ -8,7 +8,7 @@ import {
 import { kanbanData, kanbanGrid } from "../data/dummy";
 import { Header } from "../components";
 import newTask from "../data/newNote.png";
-import { getEmployeTask } from "../services/employeService";
+import { getEmployeTask, updateTaskById } from "../services/employeService";
 
 const Kanban = () => {
   const [data, setData] = useState([]);
@@ -19,9 +19,8 @@ const Kanban = () => {
     });
   }, []);
 
-  const drag = ({ changedRecords }) => {
-    //continue
-    console.log(changedRecords[0]);
+  const dragStopping = ({ data }) => {
+    updateTaskById(data[0].Id, data[0]);
   };
 
   return (
@@ -32,16 +31,13 @@ const Kanban = () => {
         keyField="Status"
         dataSource={data}
         cardSettings={{ contentField: "Summary", headerField: "Title" }}
-        dataSourceChanged={drag}
+        dragStop={dragStopping}
       >
         <ColumnsDirective>
           <ColumnDirective headerText="To Do" keyField="Open" />
           <ColumnDirective headerText="In Progress" keyField="InProgress" />
           <ColumnDirective headerText="Testing" keyField="Review" />
           <ColumnDirective headerText="Done" keyField="Validate" />
-          {/* {kanbanGrid.map((item, index) => (
-            <ColumnDirective key={index} {...item} />
-          ))} */}
         </ColumnsDirective>
       </KanbanComponent>
     </div>
